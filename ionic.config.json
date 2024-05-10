@@ -1,0 +1,7 @@
+{
+  "name": "cofee count",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
