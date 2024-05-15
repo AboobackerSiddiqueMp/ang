@@ -1,20 +1,36 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-app>
+  <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title>Drink Preference Poll</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+  <ion-content [fullscreen]="true" class="ion-padding center-content">
+    <div>
+      <h2>Vote for your preference:</h2>
+      <ion-select placeholder="Select time of day" [(ngModel)]="selectedTime" >
+        <ion-select-option  value="morning">Morning</ion-select-option>
+        <ion-select-option value="evening">Evening</ion-select-option>
+      </ion-select>
+
+      <ion-card>
+        <ion-card-content class="center-buttons" *ngFor="let drink of drinksname ">
+          <ion-button (click)="adddrinkorder(drink.id)" expand="block" [disabled]="allButtonsDisabled">{{drink.itemName}}</ion-button>
+        </ion-card-content>
+      </ion-card>
+      <ul>
+        <li *ngFor="let item of currentdata">
+          {{ item.name }}: {{ item.count }}
+        </li>
+      </ul>
+
+      
+      <!-- <p>KattanVotes: {{kattan}}</p>
+      <p>Coffee Votes:{{cofeecount}} </p>
+      <p>Tea Votes:{{teaCount}} </p>
+      <p>Without Tea Votes:{{WithoutTea}} </p>
+      <p>Without Coffee Votes:{{WithoutCoffee}}</p>
+      <p>Milk Votes:{{Milk}}</p> -->
+    </div>
+  </ion-content>
+</ion-app>
